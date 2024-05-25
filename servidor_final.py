@@ -23,7 +23,7 @@ class Producer:
             while True:
                 data = self.generate_temperature_data()
                 self.producer.send(self.topic, value=data)
-                print(f"Sent data: {data}")
+                print(f"Datos enviados: {data}")
                 time.sleep(5)
         except Exception as e:
             print(f"Error sending data to Kafka: {e}")
@@ -31,7 +31,7 @@ class Producer:
             self.producer.close()
 
 if __name__ == '__main__':
-    # Parámetros para el tópico y la frecuencia
+    # Parámetros para el tópico 
     topic = 'temp'
     producer = Producer(topic)
     producer.start_producer()
